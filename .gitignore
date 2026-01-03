@@ -1,0 +1,12 @@
+.dist/
+wordlist.txt
+aggregated.json
+recollapse.json
+urls.json
+**/result.json
+**/manual_res.json
+**/node_modules
+**/target
+**/vendor
+dotnet/**/bin
+dotnet/**/obj

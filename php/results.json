@@ -1,0 +1,2489 @@
+{
+    "curl": [
+        {
+            "url": "http://user:pass@parent.com:80/a/b?a=b&c=d#frag",
+            "response": "GET /a/b?a=b&c=d HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNz\r\nAccept: */*\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://user:pass@parent.com:81/a/b?x=1&x=2##@://?test",
+            "response": "GET /a/b?x=1&x=2 HTTP/1.1\r\nHost: parent.com:81\r\nAuthorization: Basic dXNlcjpwYXNz\r\nAccept: */*\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b?x=1%3Bx=2",
+            "response": "GET /a/b?x=1%3Bx=2 HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://b\u00fccher.de/a/b?x=1%3Bx=2",
+            "response": "<!DOCTYPE html>\n<html lang=\"de\" class=\"no-js\"  data-module=\"home\" data-base-href=\"https://www.buecher.de/\" data-img-href=\"https://bilder.buecher.de/\" data-hits=\"1\" data-first=\"1\" data-speech=\"1\" data-ymd=\"20251222\" data-eggs=\"0\" data-balls=\"0\" data-session=\"s1433e9mbh8g4nf3rtb3eiglpk\" data-product-media=\"https://bilder.buecher.de/produkte/\" data-server-name=\"https://www.buecher.de\">\n\n<head>\n  <met",
+            "error": null
+        },
+        {
+            "url": "HttP://parent.com/a/b?x=1;x=2",
+            "response": "GET /a/b?x=1;x=2 HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "%68%74%74%70://parent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "\uff48\uff54\uff54\uff50\uff53://parent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "hello://parent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "https:///parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https:////parent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "https:/parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https:////////////////parent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "https:\\\\parent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "http:\uff0f\uff0fparent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "https:%2f%2fparent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "https://parent.com://child.org",
+            "response": "GET //child.org HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": null
+        },
+        {
+            "url": "\\\\parent.com",
+            "response": null,
+            "error": null
+        }
+    ],
+    "guzzle": [
+        {
+            "url": "http://user:pass@parent.com:80/a/b?a=b&c=d#frag",
+            "response": "GET /a/b?a=b&c=d HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNz\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://user:pass@parent.com:81/a/b?x=1&x=2##@://?test",
+            "response": "GET /a/b?x=1&x=2 HTTP/1.1\r\nHost: parent.com:81\r\nAuthorization: Basic dXNlcjpwYXNz\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b?x=1%3Bx=2",
+            "response": "GET /a/b?x=1%3Bx=2 HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://b\u00fccher.de/a/b?x=1%3Bx=2",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ClientException: Client error: `GET http://b\u00fccher.de/a/b?x=1%3Bx=2` resulted in a `400 Bad Request: malformed Host header` response:\n400 Bad Request: malformed Host header\n"
+        },
+        {
+            "url": "HttP://parent.com/a/b?x=1;x=2",
+            "response": "GET /a/b?x=1;x=2 HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "%68%74%74%70://parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Port number was not a decimal number between 0 and 65535 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for %68%74%74%70://parent.com"
+        },
+        {
+            "url": "\uff48\uff54\uff54\uff50\uff53://parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Port number was not a decimal number between 0 and 65535 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for %EF%BD%88%EF%BD%94%EF%BD%94%EF%BD%90%EF%BD%93://parent.com"
+        },
+        {
+            "url": "parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "hello://parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 1: Protocol \"hello\" not supported (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for hello://parent.com"
+        },
+        {
+            "url": "https:///parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https:///parent.com"
+        },
+        {
+            "url": "https:////parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https:////parent.com"
+        },
+        {
+            "url": "https:/parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https:////////////////parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https:////////////////parent.com"
+        },
+        {
+            "url": "https:\\\\parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Port number was not a decimal number between 0 and 65535 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https:%5C%5Cparent.com"
+        },
+        {
+            "url": "http:\uff0f\uff0fparent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Port number was not a decimal number between 0 and 65535 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for http:%EF%BC%8F%EF%BC%8Fparent.com"
+        },
+        {
+            "url": "https:%2f%2fparent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Port number was not a decimal number between 0 and 65535 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https:%2f%2fparent.com"
+        },
+        {
+            "url": "https://parent.com://child.org",
+            "response": "GET //child.org HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "//parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: ///parent.com"
+        },
+        {
+            "url": "\\\\parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Bad hostname (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for %5C%5Cparent.com"
+        },
+        {
+            "url": "http://user:pass@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNz\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNzQA==\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@parent.com@child.org",
+            "response": "GET / HTTP/1.1\r\nHost: child.org\r\nAuthorization: Basic dXNlcjpwYXNzQHBhcmVudC5jb20=\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://user:pass%40parent.com"
+        },
+        {
+            "url": "https://user:pass\\@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNzXA==\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass%5c%40parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://user:pass%5c%40parent.com"
+        },
+        {
+            "url": "https://user:pass\uff20parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://user:pass\uff20parent.com"
+        },
+        {
+            "url": "https://parent.com#@child.org/",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user@parent.com:80@child.org",
+            "response": "GET / HTTP/1.1\r\nHost: child.org\r\nAuthorization: Basic dXNlckBwYXJlbnQuY29tOjgw\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user@parent.com:80 @child.org",
+            "response": "GET / HTTP/1.1\r\nHost: child.org\r\nAuthorization: Basic dXNlckBwYXJlbnQuY29tOjgwIA==\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user::pass@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjo6cGFzcw==\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@parent.com:pass2@child.org",
+            "response": "GET / HTTP/1.1\r\nHost: child.org\r\nAuthorization: Basic dXNlcjpwYXNzQHBhcmVudC5jb206cGFzczI=\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com:443:444/",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Port number was not a decimal number between 0 and 65535 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://parent.com:443:444/"
+        },
+        {
+            "url": "https://user%3apass@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNzOg==\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user\uff1apass@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcu+8mnBhc3M6\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com.",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com.\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://.parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ConnectException: cURL error 6: Could not resolve host: .parent.com (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://.parent.com"
+        },
+        {
+            "url": "https://parent.com://",
+            "response": "GET // HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com@",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://parent.com@"
+        },
+        {
+            "url": "https://parent.com:",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com?",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com&",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Bad hostname (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://parent.com&"
+        },
+        {
+            "url": "https://parent.com#",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://fa\u00df.de",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ClientException: Client error: `GET http://fa\u00df.de` resulted in a `400 Bad Request: malformed Host header` response:\n400 Bad Request: malformed Host header\n"
+        },
+        {
+            "url": "https://parent.co\u33a7",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ConnectException: cURL error 6: Could not resolve host: parent.co\u33a7 (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://parent.co\u33a7"
+        },
+        {
+            "url": "https://[::1]",
+            "response": "GET / HTTP/1.1\r\nHost: [::1]\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%lo0]",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://[::1%lo0]"
+        },
+        {
+            "url": "https://[::1%25lo0]",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://[::1%25lo0]"
+        },
+        {
+            "url": "https://[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]"
+        },
+        {
+            "url": "https://[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]"
+        },
+        {
+            "url": "https://[::1%@parent.com#]",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic Wzo6MSU=\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]"
+        },
+        {
+            "url": "parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://%70%61%72%65%6E%74%2E%63%6Fm?x=y",
+            "response": "GET /?x=y HTTP/1.1\r\nHost: %70%61%72%65%6e%74%2e%63%6fm\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com:-1",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://parent.com:-1"
+        },
+        {
+            "url": "https://parent.com:65536",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://parent.com:65536"
+        },
+        {
+            "url": "https://parent.com:hello",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://parent.com:hello"
+        },
+        {
+            "url": "https://parent.com:\u2463\u2463\u2462",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://parent.com:\u2463\u2463\u2462"
+        },
+        {
+            "url": "https://parent.com:443:",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com:443\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://:443/path",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://:443/path"
+        },
+        {
+            "url": "%68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Bad hostname (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for %68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33"
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: https://user:pass%40parent.com"
+        },
+        {
+            "url": "https:@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic aHR0cHM6\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI: ///parent.com"
+        },
+        {
+            "url": "//parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "/\\parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: No host part in the URL (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for /%5Cparent.com"
+        },
+        {
+            "url": "/\n/parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: No host part in the URL (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for /%0A/parent.com"
+        },
+        {
+            "url": "/\t/parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: No host part in the URL (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for /%09/parent.com"
+        },
+        {
+            "url": "http\uff1a//parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ConnectException: cURL error 6: Could not resolve host: http\uff1a (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for http%EF%BC%9A//parent.com"
+        },
+        {
+            "url": "http\ufe55//parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ConnectException: cURL error 7: Failed to connect to http: port 80 after 78 ms: Could not connect to server (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for http%EF%B9%95//parent.com"
+        },
+        {
+            "url": "http%ef%b9%95//parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ConnectException: cURL error 7: Failed to connect to http: port 80 after 78 ms: Could not connect to server (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for http%ef%b9%95//parent.com"
+        },
+        {
+            "url": "https://parent.com/a\uff2e\uff2e/b",
+            "response": "GET /a%EF%BC%AE%EF%BC%AE/b HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com:8888/proxy/coordinator@child.org",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ConnectException: cURL error 7: Failed to connect to parent.com port 8888 after 79 ms: Could not connect to server (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for http://parent.com:8888/proxy/coordinator@child.org"
+        },
+        {
+            "url": "https://parent.com[@child.org",
+            "response": "GET / HTTP/1.1\r\nHost: child.org\r\nAuthorization: Basic cGFyZW50LmNvbVs6\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/redirect?uri=https://child.org?originalUrl=http://evil.com",
+            "response": "GET /redirect?uri=https://child.org?originalUrl=http://evil.com HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": " https://parent.com?x=cve-2023-24329",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Malformed input to a URL function (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for  https://parent.com?x=cve-2023-24329"
+        },
+        {
+            "url": " https://parent.com:80%5c%5cchild.org//#what\\is going on",
+            "response": null,
+            "error": "GuzzleHttp\\Psr7\\Exception\\MalformedUriException: Unable to parse URI:  https://parent.com:80%5c%5cchild.org//#what\\is going on"
+        },
+        {
+            "url": "https:@/parent.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: No host part in the URL (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https:@/parent.com"
+        },
+        {
+            "url": "https://user@parent.com:808:/?id=xss",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\ConnectException: cURL error 7: Failed to connect to parent.com port 808 after 113 ms: Could not connect to server (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://user@parent.com:808/?id=xss"
+        },
+        {
+            "url": "https://pa[re]nt.com",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Bad hostname (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://pa[re]nt.com"
+        },
+        {
+            "url": "https://pa[rent.com%25lo%25]:8000",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Bad hostname (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://pa[rent.com%25lo%25]:8000"
+        },
+        {
+            "url": "http://parent.com:\ba@child.org/",
+            "response": "GET / HTTP/1.1\r\nHost: child.org\r\nAuthorization: Basic cGFyZW50LmNvbToIYQ==\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/../b/./c",
+            "response": "GET /b/c HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a//b///c",
+            "response": "GET /a//b///c HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;matrix=true/c",
+            "response": "GET /a/b;matrix=true/c HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;role=admin;debug=true?x=1",
+            "response": "GET /a/b;role=admin;debug=true?x=1 HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn",
+            "response": "GET /path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?a=1,2,3",
+            "response": "GET /?a=1,2,3 HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?arr[]=1&arr[]=2",
+            "response": "GET /?arr%5B%5D=1&arr%5B%5D=2 HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello world",
+            "response": "GET /?q=hello%20world HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello+world",
+            "response": "GET /?q=hello+world HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com//a/b",
+            "response": "GET //a/b HTTP/1.1\r\nHost: parent.com\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://[::1%25tes@sadf]:80/a/b&",
+            "response": null,
+            "error": "GuzzleHttp\\Exception\\RequestException: cURL error 3: URL rejected: Bad hostname (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for http://%5B:***@sadf]/a/b&"
+        },
+        {
+            "url": "http://[::1%tes]:80/a/b?#",
+            "response": "GET /a/b HTTP/1.1\r\nHost: [::1%tes]\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://\u2460\u00b2\u2466.\u2460?a#",
+            "response": "GET /?a HTTP/1.1\r\nHost: \u2460\u00b2\u2466.\u2460\r\nUser-Agent: GuzzleHttp/7\r\n\r\n",
+            "error": null
+        }
+    ],
+    "symfony": [
+        {
+            "url": "http://user:pass@parent.com:80/a/b?a=b&c=d#frag",
+            "response": "GET /a/b?a=b&c=d HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNz\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://user:pass@parent.com:81/a/b?x=1&x=2##@://?test",
+            "response": "GET /a/b?x=1&x=2 HTTP/1.1\r\nHost: parent.com:81\r\nAuthorization: Basic dXNlcjpwYXNz\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b?x=1%3Bx=2",
+            "response": "GET /a/b?x=1%3Bx=2 HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://b\u00fccher.de/a/b?x=1%3Bx=2",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Unsupported IDN \"b\u00fccher.de\", try enabling the \"intl\" PHP extension or running \"composer require symfony/polyfill-intl-idn\"."
+        },
+        {
+            "url": "HttP://parent.com/a/b?x=1;x=2",
+            "response": "GET /a/b?x=1;x=2 HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "%68%74%74%70://parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"http://parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "\uff48\uff54\uff54\uff50\uff53://parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"%EF%BD_%EF%BD_%EF%BD_%EF%BD_%EF%BD_://parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "hello://parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Unsupported scheme in \"hello://parent.com\": \"http\" or \"https\" expected."
+        },
+        {
+            "url": "https:///parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https:///parent.com\"."
+        },
+        {
+            "url": "https:////parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https:////parent.com\"."
+        },
+        {
+            "url": "https:/parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: host is missing in \"https:/parent.com\"."
+        },
+        {
+            "url": "https:////////////////parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https:////////////////parent.com\"."
+        },
+        {
+            "url": "https:\\\\parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https:\\\\parent.com\": backslashes are not allowed."
+        },
+        {
+            "url": "http:\uff0f\uff0fparent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: host is missing in \"http:%EF%BC_%EF%BC_parent.com\"."
+        },
+        {
+            "url": "https:%2f%2fparent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: host is missing in \"https:%2f%2fparent.com\"."
+        },
+        {
+            "url": "https://parent.com://child.org",
+            "response": "GET //child.org HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"//parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"///parent.com\"."
+        },
+        {
+            "url": "\\\\parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"\\\\parent.com\": backslashes are not allowed."
+        },
+        {
+            "url": "http://user:pass@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNz\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@@parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad hostname for \"https://user:pass@@parent.com/\"."
+        },
+        {
+            "url": "https://user:pass@parent.com@child.org",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad hostname for \"https://user:pass@parent.com@child.org/\"."
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://user:pass%40parent.com\"."
+        },
+        {
+            "url": "https://user:pass\\@parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://user:pass\\@parent.com\": backslashes are not allowed."
+        },
+        {
+            "url": "https://user:pass%5c%40parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://user:pass%5c%40parent.com\"."
+        },
+        {
+            "url": "https://user:pass\uff20parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://user:pass\uff20parent.com\"."
+        },
+        {
+            "url": "https://parent.com#@child.org/",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user@parent.com:80@child.org",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Port number was not a decimal number between 0 and 65535 for \"https://user@parent.com:80@child.org/\"."
+        },
+        {
+            "url": "https://user@parent.com:80 @child.org",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Port number was not a decimal number between 0 and 65535 for \"https://user@parent.com:80%20@child.org/\"."
+        },
+        {
+            "url": "https://user::pass@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjo6cGFzcw==\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@parent.com:pass2@child.org",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Port number was not a decimal number between 0 and 65535 for \"https://user:pass@parent.com:pass2@child.org/\"."
+        },
+        {
+            "url": "https://parent.com:443:444/",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Port number was not a decimal number between 0 and 65535 for \"https://parent.com:443:444/\"."
+        },
+        {
+            "url": "https://user%3apass@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcjpwYXNzOg==\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user\uff1apass@parent.com",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic dXNlcu+8X3Bhc3M6\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com.",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com.\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://.parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: Could not resolve host: .parent.com for \"https://.parent.com/\"."
+        },
+        {
+            "url": "https://parent.com://",
+            "response": "GET // HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com@",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://parent.com@\"."
+        },
+        {
+            "url": "https://parent.com:",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com?",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com&",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad hostname for \"https://parent.com&/\"."
+        },
+        {
+            "url": "https://parent.com#",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://fa\u00df.de",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Unsupported IDN \"fa_.de\", try enabling the \"intl\" PHP extension or running \"composer require symfony/polyfill-intl-idn\"."
+        },
+        {
+            "url": "https://parent.co\u33a7",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Unsupported IDN \"parent.co_\", try enabling the \"intl\" PHP extension or running \"composer require symfony/polyfill-intl-idn\"."
+        },
+        {
+            "url": "https://[::1]",
+            "response": "GET / HTTP/1.1\r\nHost: [::1]\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%lo0]",
+            "response": "GET / HTTP/1.1\r\nHost: [::1]\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%25lo0]",
+            "response": "GET / HTTP/1.1\r\nHost: [::1]\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad IPv6 address for \"https://[::1%25%40%70%61%72%65%6e%74%2e%63%6f%6d%23]/\"."
+        },
+        {
+            "url": "https://[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad IPv6 address for \"https://[::1%%40%70%61%72%65%6e%74%2e%63%6f%6d%23]/\"."
+        },
+        {
+            "url": "https://[::1%@parent.com#]",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAuthorization: Basic Wzo6MSU=\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad IPv6 address for \"https://[::1%25%28%29%3d%3b%2b%21%24%2a%2c%5b%5d]/\"."
+        },
+        {
+            "url": "parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "http://%70%61%72%65%6E%74%2E%63%6Fm?x=y",
+            "response": "GET /?x=y HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com:-1",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://parent.com:-1\"."
+        },
+        {
+            "url": "https://parent.com:65536",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://parent.com:65536\"."
+        },
+        {
+            "url": "https://parent.com:hello",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://parent.com:hello\"."
+        },
+        {
+            "url": "https://parent.com:\u2463\u2463\u2462",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://parent.com:\u2463\u2463\u2462\"."
+        },
+        {
+            "url": "https://parent.com:443:",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://:443/path",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://:443/path\"."
+        },
+        {
+            "url": "%68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"http%3A%2F%2Fparent.com%2F%3Fa%3D1%2C2%2C3\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"https://user:pass%40parent.com\"."
+        },
+        {
+            "url": "https:@parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: host is missing in \"https:@parent.com\"."
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"///parent.com\"."
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"//parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "/\\parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"/\\parent.com\": backslashes are not allowed."
+        },
+        {
+            "url": "/\n/parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"/\n/parent.com\": CR/LF/TAB characters are not allowed."
+        },
+        {
+            "url": "/\t/parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \"/\t/parent.com\": CR/LF/TAB characters are not allowed."
+        },
+        {
+            "url": "http\uff1a//parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"http%EF%BC_//parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "http\ufe55//parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"http%EF%B9_//parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "http%ef%b9%95//parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: scheme is missing in \"http%ef%b9%95//parent.com\". Did you forget to add \"http(s)://\"?"
+        },
+        {
+            "url": "https://parent.com/a\uff2e\uff2e/b",
+            "response": "GET /a%EF%BC%AE%EF%BC%AE/b HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com:8888/proxy/coordinator@child.org",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: Failed to connect to parent.com port 8888 after 1 ms: Could not connect to server for \"http://parent.com:8888/proxy/coordinator@child.org\"."
+        },
+        {
+            "url": "https://parent.com[@child.org",
+            "response": "GET / HTTP/1.1\r\nHost: child.org\r\nAuthorization: Basic cGFyZW50LmNvbVs6\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/redirect?uri=https://child.org?originalUrl=http://evil.com",
+            "response": "GET /redirect?uri=https://child.org%3ForiginalUrl=http://evil.com HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": " https://parent.com?x=cve-2023-24329",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \" https://parent.com?x=cve-2023-24329\": leading/trailing ASCII control characters or spaces are not allowed."
+        },
+        {
+            "url": " https://parent.com:80%5c%5cchild.org//#what\\is going on",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Malformed URL \" https://parent.com:80%5c%5cchild.org//#what\\is going on\": leading/trailing ASCII control characters or spaces are not allowed."
+        },
+        {
+            "url": "https:@/parent.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Invalid URL: host is missing in \"https:@/parent.com\"."
+        },
+        {
+            "url": "https://user@parent.com:808:/?id=xss",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: Failed to connect to parent.com port 808 after 1 ms: Could not connect to server for \"https://user@parent.com:808/?id=xss\"."
+        },
+        {
+            "url": "https://pa[re]nt.com",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad hostname for \"https://pa[re]nt.com/\"."
+        },
+        {
+            "url": "https://pa[rent.com%25lo%25]:8000",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad hostname for \"https://pa[rent.com%25lo%25]:8000/\"."
+        },
+        {
+            "url": "http://parent.com:\ba@child.org/",
+            "response": "GET / HTTP/1.1\r\nHost: child.org\r\nAuthorization: Basic cGFyZW50LmNvbTpfYQ==\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/../b/./c",
+            "response": "GET /b/c HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a//b///c",
+            "response": "GET /a//b///c HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;matrix=true/c",
+            "response": "GET /a/b;matrix=true/c HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;role=admin;debug=true?x=1",
+            "response": "GET /a/b;role=admin;debug=true?x=1 HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn",
+            "response": "GET /path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?a=1,2,3",
+            "response": "GET /?a=1,2,3 HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?arr[]=1&arr[]=2",
+            "response": "GET /?arr[]=1&arr[]=2 HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello world",
+            "response": "GET /?q=hello%20world HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello+world",
+            "response": "GET /?q=hello+world HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com//a/b",
+            "response": "GET //a/b HTTP/1.1\r\nHost: parent.com\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://[::1%25tes@sadf]:80/a/b&",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\TransportException: URL rejected: Bad hostname for \"http://[::1%25tes@sadf]/a/b&\"."
+        },
+        {
+            "url": "http://[::1%tes]:80/a/b?#",
+            "response": "GET /a/b HTTP/1.1\r\nHost: [::1]\r\nAccept: */*\r\nUser-Agent: Symfony HttpClient (Curl)\r\nAccept-Encoding: gzip\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://\u2460\u00b2\u2466.\u2460?a#",
+            "response": null,
+            "error": "Symfony\\Component\\HttpClient\\Exception\\InvalidArgumentException: Unsupported IDN \"_\u00b2_._\", try enabling the \"intl\" PHP extension or running \"composer require symfony/polyfill-intl-idn\"."
+        }
+    ],
+    "amphp": [
+        {
+            "url": "http://user:pass@parent.com:80/a/b?a=b&c=d#frag",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "http://user:pass@parent.com:81/a/b?x=1&x=2##@://?test",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "http://b\u00fccher.de/a/b?x=1%3Bx=2",
+            "response": null,
+            "error": "Host `b\u00fccher.de` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "%68%74%74%70://parent.com",
+            "response": null,
+            "error": "The uri `%68%74%74%70://parent.com` contains an invalid scheme"
+        },
+        {
+            "url": "\uff48\uff54\uff54\uff50\uff53://parent.com",
+            "response": null,
+            "error": "The uri `\uff48\uff54\uff54\uff50\uff53://parent.com` contains an invalid scheme"
+        },
+        {
+            "url": "https:///parent.com",
+            "response": null,
+            "error": "The uri `https:///parent.com` is invalid for the `https` scheme."
+        },
+        {
+            "url": "https:////parent.com",
+            "response": null,
+            "error": "The uri `https:////parent.com` is invalid for the `https` scheme."
+        },
+        {
+            "url": "https:/parent.com",
+            "response": null,
+            "error": "The uri `https:/parent.com` is invalid for the `https` scheme."
+        },
+        {
+            "url": "https:////////////////parent.com",
+            "response": null,
+            "error": "The uri `https:////////////////parent.com` is invalid for the `https` scheme."
+        },
+        {
+            "url": "https:\\\\parent.com",
+            "response": null,
+            "error": "The uri `https:%5C%5Cparent.com` is invalid for the `https` scheme."
+        },
+        {
+            "url": "http:\uff0f\uff0fparent.com",
+            "response": null,
+            "error": "The uri `http:%EF%BC%8F%EF%BC%8Fparent.com` is invalid for the `http` scheme."
+        },
+        {
+            "url": "https:%2f%2fparent.com",
+            "response": null,
+            "error": "The uri `https:%2f%2fparent.com` is invalid for the `https` scheme."
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "An URI without scheme cannot contain an empty host string according to PSR-7: ///parent.com"
+        },
+        {
+            "url": "http://user:pass@parent.com",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "https://user:pass@@parent.com",
+            "response": null,
+            "error": "Host `@parent.com` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://user:pass@parent.com@child.org",
+            "response": null,
+            "error": "Host `parent.com@child.org` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "The port `pass%40parent.com` is invalid"
+        },
+        {
+            "url": "https://user:pass\\@parent.com",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "https://user:pass%5c%40parent.com",
+            "response": null,
+            "error": "The port `pass%5c%40parent.com` is invalid"
+        },
+        {
+            "url": "https://user:pass\uff20parent.com",
+            "response": null,
+            "error": "The port `pass\uff20parent.com` is invalid"
+        },
+        {
+            "url": "https://user@parent.com:80@child.org",
+            "response": null,
+            "error": "The port `80@child.org` is invalid"
+        },
+        {
+            "url": "https://user@parent.com:80 @child.org",
+            "response": null,
+            "error": "The port `80%20@child.org` is invalid"
+        },
+        {
+            "url": "https://user::pass@parent.com",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "https://user:pass@parent.com:pass2@child.org",
+            "response": null,
+            "error": "The port `pass2@child.org` is invalid"
+        },
+        {
+            "url": "https://parent.com:443:444/",
+            "response": null,
+            "error": "The port `443:444` is invalid"
+        },
+        {
+            "url": "https://user%3apass@parent.com",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "https://user\uff1apass@parent.com",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "https://parent.com@",
+            "response": null,
+            "error": "The uri `https://parent.com@` is invalid for the `https` scheme."
+        },
+        {
+            "url": "http://fa\u00df.de",
+            "response": null,
+            "error": "Host `fa\u00df.de` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://parent.co\u33a7",
+            "response": null,
+            "error": "Host `parent.co\u33a7` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://[::1%lo0]",
+            "response": null,
+            "error": "Host `[::1%lo0]` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://[::1%25lo0]",
+            "response": null,
+            "error": "Host `[::1%25lo0]` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "Host `[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "Host `[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://[::1%@parent.com#]",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "https://[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]",
+            "response": null,
+            "error": "Host `[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://parent.com:-1",
+            "response": null,
+            "error": "The port `-1` is invalid"
+        },
+        {
+            "url": "https://parent.com:65536",
+            "response": null,
+            "error": "The URI port is outside the established TCP and UDP port ranges: https://parent.com:65536"
+        },
+        {
+            "url": "https://parent.com:hello",
+            "response": null,
+            "error": "The port `hello` is invalid"
+        },
+        {
+            "url": "https://parent.com:\u2463\u2463\u2462",
+            "response": null,
+            "error": "The port `\u2463\u2463\u2462` is invalid"
+        },
+        {
+            "url": "https://parent.com:443:",
+            "response": null,
+            "error": "The port `443:` is invalid"
+        },
+        {
+            "url": "https://:443/path",
+            "response": null,
+            "error": "The uri `https:///path` is invalid for the `https` scheme."
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "The port `pass%40parent.com` is invalid"
+        },
+        {
+            "url": "https:@parent.com",
+            "response": null,
+            "error": "The uri `https:@parent.com` is invalid for the `https` scheme."
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "An URI without scheme cannot contain an empty host string according to PSR-7: ///parent.com"
+        },
+        {
+            "url": "parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: parent.com"
+        },
+        {
+            "url": "hello://parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: hello://parent.com"
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: //parent.com"
+        },
+        {
+            "url": "\\\\parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: %5C%5Cparent.com"
+        },
+        {
+            "url": "parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: parent.com"
+        },
+        {
+            "url": "%68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: %68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33"
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: //parent.com"
+        },
+        {
+            "url": "/\n/parent.com",
+            "response": null,
+            "error": "The uri `/\n/parent.com` contains invalid characters"
+        },
+        {
+            "url": "/\t/parent.com",
+            "response": null,
+            "error": "The uri `/\t/parent.com` contains invalid characters"
+        },
+        {
+            "url": "https://parent.com[@child.org",
+            "response": null,
+            "error": "The user information (username:password) component of URIs has been deprecated (see https://tools.ietf.org/html/rfc3986#section-3.2.1 and https://tools.ietf.org/html/rfc7230#section-2.7.1); Instead, set an \"Authorization\" header containing \"Basic \" . \\base64_encode(\"username:password\"). If you used HttpClientBuilder, you can use HttpClientBuilder::allowDeprecatedUriUserInfo() to disable this protection. Doing so is strongly discouraged and you need to be aware of any interceptor using UriInterface::__toString(), which might expose the password in headers or logs."
+        },
+        {
+            "url": "/\\parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: /%5Cparent.com"
+        },
+        {
+            "url": "http\uff1a//parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: http%EF%BC%9A//parent.com"
+        },
+        {
+            "url": "http\ufe55//parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: http%EF%B9%95//parent.com"
+        },
+        {
+            "url": "http%ef%b9%95//parent.com",
+            "response": null,
+            "error": "Invalid scheme provided in the request URI: http%ef%b9%95//parent.com"
+        },
+        {
+            "url": " https://parent.com?x=cve-2023-24329",
+            "response": null,
+            "error": "The uri ` https://parent.com?x=cve-2023-24329` contains invalid characters"
+        },
+        {
+            "url": " https://parent.com:80%5c%5cchild.org//#what\\is going on",
+            "response": null,
+            "error": "The uri ` https://parent.com:80%5c%5cchild.org//#what\\is going on` contains invalid characters"
+        },
+        {
+            "url": "https:@/parent.com",
+            "response": null,
+            "error": "The uri `https:@/parent.com` is invalid for the `https` scheme."
+        },
+        {
+            "url": "https://user@parent.com:808:/?id=xss",
+            "response": null,
+            "error": "The port `808:` is invalid"
+        },
+        {
+            "url": "https://pa[re]nt.com",
+            "response": null,
+            "error": "Host `pa[re]nt.com` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "https://pa[rent.com%25lo%25]:8000",
+            "response": null,
+            "error": "Host `pa[rent.com%25lo%25]` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "http://parent.com:\ba@child.org/",
+            "response": null,
+            "error": "The uri `http://parent.com:\ba@child.org/` contains invalid characters"
+        },
+        {
+            "url": "http://parent.com/a/b?x=1%3Bx=2",
+            "response": "GET /a/b?x=1%3Bx=2 HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "HttP://parent.com/a/b?x=1;x=2",
+            "response": "GET /a/b?x=1;x=2 HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com.",
+            "response": null,
+            "error": "Connection to 'parent.com.:443' @ '127.0.0.1:443' closed during TLS handshake: TLS negotiation failed: Connection reset by peer"
+        },
+        {
+            "url": "http://%70%61%72%65%6E%74%2E%63%6Fm?x=y",
+            "response": "GET /?x=y HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/redirect?uri=https://child.org?originalUrl=http://evil.com",
+            "response": "GET /redirect?uri=https://child.org?originalUrl=http://evil.com HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/../b/./c",
+            "response": "GET /a/../b/./c HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a//b///c",
+            "response": "GET /a//b///c HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://[::1%25tes@sadf]:80/a/b&",
+            "response": null,
+            "error": "Host `sadf]` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "http://[::1%tes]:80/a/b?#",
+            "response": null,
+            "error": "Host `[::1%tes]` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "http://\u2460\u00b2\u2466.\u2460?a#",
+            "response": null,
+            "error": "Host `\u2460\u00b2\u2466.\u2460` is invalid : the IP host is malformed"
+        },
+        {
+            "url": "http://parent.com/a/b;matrix=true/c",
+            "response": "GET /a/b;matrix=true/c HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;role=admin;debug=true?x=1",
+            "response": "GET /a/b;role=admin;debug=true?x=1 HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1]",
+            "response": "GET / HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: [::1]\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com#@child.org/",
+            "response": "GET / HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn",
+            "response": "GET /path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?a=1,2,3",
+            "response": "GET /?a=1,2,3 HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?arr[]=1&arr[]=2",
+            "response": "GET /?arr%5B%5D=1&arr%5B%5D=2 HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello world",
+            "response": "GET /?q=hello%20world HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello+world",
+            "response": "GET /?q=hello+world HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com//a/b",
+            "response": "GET /a/b HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com:",
+            "response": "GET / HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com/a\uff2e\uff2e/b",
+            "response": "GET /a%EF%BC%AE%EF%BC%AE/b HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com://child.org",
+            "response": "GET /child.org HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com?",
+            "response": "GET / HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com://",
+            "response": "GET / HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com#",
+            "response": "GET / HTTP/1.1\r\naccept: */*\r\nuser-agent: amphp/http-client/5.x\r\nAccept-Encoding: gzip, deflate, identity\r\nhost: parent.com\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://.parent.com",
+            "response": null,
+            "error": "Connection to '.parent.com:443' failed"
+        },
+        {
+            "url": "https://parent.com&",
+            "response": null,
+            "error": "Connection to 'parent.com&:443' failed"
+        },
+        {
+            "url": "http://parent.com:8888/proxy/coordinator@child.org",
+            "response": null,
+            "error": "Connection to 'parent.com:8888' failed"
+        }
+    ],
+    "readfile": [
+        {
+            "url": "http://user:pass@parent.com:80/a/b?a=b&c=d#frag",
+            "response": "GET /a/b?a=b&c=d HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNz\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://user:pass@parent.com:81/a/b?x=1&x=2##@://?test",
+            "response": "GET /a/b?x=1&x=2 HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNz\r\nHost: parent.com:81\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b?x=1%3Bx=2",
+            "response": "GET /a/b?x=1%3Bx=2 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://b\u00fccher.de/a/b?x=1%3Bx=2",
+            "response": null,
+            "error": "readfile(http://b\u00fccher.de/a/b?x=1%3Bx=2): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request: malformed Host header\r\n"
+        },
+        {
+            "url": "HttP://parent.com/a/b?x=1;x=2",
+            "response": "GET /a/b?x=1;x=2 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "%68%74%74%70://parent.com",
+            "response": null,
+            "error": "readfile(%68%74%74%70://parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "\uff48\uff54\uff54\uff50\uff53://parent.com",
+            "response": null,
+            "error": "readfile(\uff48\uff54\uff54\uff50\uff53://parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "parent.com",
+            "response": null,
+            "error": "readfile(parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "hello://parent.com",
+            "response": null,
+            "error": "readfile(hello://parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https:///parent.com",
+            "response": null,
+            "error": "readfile(https:///parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https:////parent.com",
+            "response": null,
+            "error": "readfile(https:////parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https:/parent.com",
+            "response": null,
+            "error": "readfile(https:/parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https:////////////////parent.com",
+            "response": null,
+            "error": "readfile(https:////////////////parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https:\\\\parent.com",
+            "response": null,
+            "error": "readfile(https:\\\\parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http:\uff0f\uff0fparent.com",
+            "response": null,
+            "error": "readfile(http:\uff0f\uff0fparent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https:%2f%2fparent.com",
+            "response": null,
+            "error": "readfile(https:%2f%2fparent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https://parent.com://child.org",
+            "response": null,
+            "error": "readfile(https://parent.com://child.org): Failed to open stream: operation failed"
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": "readfile(//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "readfile(///parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "\\\\parent.com",
+            "response": null,
+            "error": "readfile(\\\\parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http://user:pass@parent.com",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNz\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@@parent.com",
+            "response": null,
+            "error": "readfile(https://...@@parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user:pass@parent.com@child.org",
+            "response": null,
+            "error": "readfile(https://...@parent.com@child.org): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "readfile(https://user:pass%40parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user:pass\\@parent.com",
+            "response": null,
+            "error": "readfile(https://...@parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user:pass%5c%40parent.com",
+            "response": null,
+            "error": "readfile(https://user:pass%5c%40parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user:pass\uff20parent.com",
+            "response": null,
+            "error": "readfile(https://user:pass\uff20parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com#@child.org/",
+            "response": null,
+            "error": "readfile(https://...@child.org/): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user@parent.com:80@child.org",
+            "response": null,
+            "error": "readfile(https://...@parent.com:80@child.org): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user@parent.com:80 @child.org",
+            "response": null,
+            "error": "readfile(https://...@parent.com:80 @child.org): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user::pass@parent.com",
+            "response": null,
+            "error": "readfile(https://...@parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user:pass@parent.com:pass2@child.org",
+            "response": null,
+            "error": "readfile(https://...@parent.com:pass2@child.org): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:443:444/",
+            "response": null,
+            "error": "readfile(https://parent.com:443:444/): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user%3apass@parent.com",
+            "response": null,
+            "error": "readfile(https://...@parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user\uff1apass@parent.com",
+            "response": null,
+            "error": "readfile(https://...@parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com.",
+            "response": null,
+            "error": "readfile(https://parent.com.): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://.parent.com",
+            "response": null,
+            "error": "readfile(https://.parent.com): Failed to open stream: php_network_getaddresses: getaddrinfo for .parent.com failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://parent.com://",
+            "response": null,
+            "error": "readfile(https://parent.com://): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com@",
+            "response": null,
+            "error": "readfile(https://...@): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:",
+            "response": null,
+            "error": "readfile(https://parent.com:): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com?",
+            "response": null,
+            "error": "readfile(https://parent.com?): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com&",
+            "response": null,
+            "error": "readfile(https://parent.com&): Failed to open stream: php_network_getaddresses: getaddrinfo for parent.com& failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://parent.com#",
+            "response": null,
+            "error": "readfile(https://parent.com#): Failed to open stream: operation failed"
+        },
+        {
+            "url": "http://fa\u00df.de",
+            "response": null,
+            "error": "readfile(http://fa\u00df.de): Failed to open stream: php_network_getaddresses: getaddrinfo for fa_.de failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://parent.co\u33a7",
+            "response": null,
+            "error": "readfile(https://parent.co\u33a7): Failed to open stream: php_network_getaddresses: getaddrinfo for parent.co_ failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://[::1]",
+            "response": null,
+            "error": "readfile(https://[::1]): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://[::1%lo0]",
+            "response": null,
+            "error": "readfile(https://[::1%lo0]): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://[::1%25lo0]",
+            "response": null,
+            "error": "readfile(https://[::1%25lo0]): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "readfile(https://[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]): Failed to open stream: php_network_getaddresses: getaddrinfo for ::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23 failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "readfile(https://[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]): Failed to open stream: php_network_getaddresses: getaddrinfo for ::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23 failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://[::1%@parent.com#]",
+            "response": null,
+            "error": "readfile(https://...@parent.com#]): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]",
+            "response": null,
+            "error": "readfile(https://[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]): Failed to open stream: php_network_getaddresses: getaddrinfo for ::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "parent.com",
+            "response": null,
+            "error": "readfile(parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http://%70%61%72%65%6E%74%2E%63%6Fm?x=y",
+            "response": null,
+            "error": "readfile(http://%70%61%72%65%6E%74%2E%63%6Fm?x=y): Failed to open stream: php_network_getaddresses: getaddrinfo for %70%61%72%65%6E%74%2E%63%6Fm failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://parent.com:-1",
+            "response": null,
+            "error": "readfile(https://parent.com:-1): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:65536",
+            "response": null,
+            "error": "readfile(https://parent.com:65536): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:hello",
+            "response": null,
+            "error": "readfile(https://parent.com:hello): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:\u2463\u2463\u2462",
+            "response": null,
+            "error": "readfile(https://parent.com:\u2463\u2463\u2462): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:443:",
+            "response": null,
+            "error": "readfile(https://parent.com:443:): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://:443/path",
+            "response": null,
+            "error": "readfile(https://:443/path): Failed to open stream: operation failed"
+        },
+        {
+            "url": "%68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33",
+            "response": null,
+            "error": "readfile(%68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "readfile(https://user:pass%40parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https:@parent.com",
+            "response": null,
+            "error": "readfile(https:@parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "readfile(///parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": "readfile(//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "/\\parent.com",
+            "response": null,
+            "error": "readfile(/\\parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "/\n/parent.com",
+            "response": null,
+            "error": "readfile(/\n/parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "/\t/parent.com",
+            "response": null,
+            "error": "readfile(/\t/parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http\uff1a//parent.com",
+            "response": null,
+            "error": "readfile(http\uff1a//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http\ufe55//parent.com",
+            "response": null,
+            "error": "readfile(http\ufe55//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http%ef%b9%95//parent.com",
+            "response": null,
+            "error": "readfile(http%ef%b9%95//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https://parent.com/a\uff2e\uff2e/b",
+            "response": null,
+            "error": "readfile(https://parent.com/a\uff2e\uff2e/b): Failed to open stream: operation failed"
+        },
+        {
+            "url": "http://parent.com:8888/proxy/coordinator@child.org",
+            "response": null,
+            "error": "readfile(http://...@child.org): Failed to open stream: Connection refused"
+        },
+        {
+            "url": "https://parent.com[@child.org",
+            "response": null,
+            "error": "readfile(https://...@child.org): Failed to open stream: operation failed"
+        },
+        {
+            "url": "http://parent.com/redirect?uri=https://child.org?originalUrl=http://evil.com",
+            "response": "GET /redirect?uri=https://child.org?originalUrl=http://evil.com HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": " https://parent.com?x=cve-2023-24329",
+            "response": null,
+            "error": "readfile( https://parent.com?x=cve-2023-24329): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": " https://parent.com:80%5c%5cchild.org//#what\\is going on",
+            "response": null,
+            "error": "readfile( https://parent.com:80%5c%5cchild.org//#what\\is going on): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https:@/parent.com",
+            "response": null,
+            "error": "readfile(https:@/parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https://user@parent.com:808:/?id=xss",
+            "response": null,
+            "error": "readfile(https://...@parent.com:808:/?id=xss): Failed to open stream: Connection refused"
+        },
+        {
+            "url": "https://pa[re]nt.com",
+            "response": null,
+            "error": "readfile(https://pa[re]nt.com): Failed to open stream: php_network_getaddresses: getaddrinfo for pa[re]nt.com failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://pa[rent.com%25lo%25]:8000",
+            "response": null,
+            "error": "readfile(https://pa[rent.com%25lo%25]:8000): Failed to open stream: php_network_getaddresses: getaddrinfo for pa[rent.com%25lo%25] failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "http://parent.com:\ba@child.org/",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic cGFyZW50LmNvbTpfYQ==\r\nHost: child.org\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/../b/./c",
+            "response": "GET /a/../b/./c HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a//b///c",
+            "response": "GET /a//b///c HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;matrix=true/c",
+            "response": "GET /a/b;matrix=true/c HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;role=admin;debug=true?x=1",
+            "response": "GET /a/b;role=admin;debug=true?x=1 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn",
+            "response": "GET /path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?a=1,2,3",
+            "response": "GET /?a=1,2,3 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?arr[]=1&arr[]=2",
+            "response": "GET /?arr[]=1&arr[]=2 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello world",
+            "response": "GET /?q=hello world HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello+world",
+            "response": "GET /?q=hello+world HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com//a/b",
+            "response": "GET //a/b HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://[::1%25tes@sadf]:80/a/b&",
+            "response": null,
+            "error": "readfile(http://...@sadf]:80/a/b&): Failed to open stream: php_network_getaddresses: getaddrinfo for sadf] failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "http://[::1%tes]:80/a/b?#",
+            "response": "GET /a/b? HTTP/1.1\r\nHost: [::1%tes]\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://\u2460\u00b2\u2466.\u2460?a#",
+            "response": null,
+            "error": "readfile(http://\u2460\u00b2\u2466.\u2460?a#): Failed to open stream: php_network_getaddresses: getaddrinfo for _\u00b2_._ failed: nodename nor servname provided, or not known"
+        }
+    ],
+    "file_get_contents": [
+        {
+            "url": "http://user:pass@parent.com:80/a/b?a=b&c=d#frag",
+            "response": "GET /a/b?a=b&c=d HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNz\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://user:pass@parent.com:81/a/b?x=1&x=2##@://?test",
+            "response": "GET /a/b?x=1&x=2 HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNz\r\nHost: parent.com:81\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b?x=1%3Bx=2",
+            "response": "GET /a/b?x=1%3Bx=2 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://b\u00fccher.de/a/b?x=1%3Bx=2",
+            "response": null,
+            "error": "file_get_contents(http://b\u00fccher.de/a/b?x=1%3Bx=2): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request: malformed Host header\r\n"
+        },
+        {
+            "url": "HttP://parent.com/a/b?x=1;x=2",
+            "response": "GET /a/b?x=1;x=2 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "%68%74%74%70://parent.com",
+            "response": null,
+            "error": "file_get_contents(%68%74%74%70://parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "\uff48\uff54\uff54\uff50\uff53://parent.com",
+            "response": null,
+            "error": "file_get_contents(\uff48\uff54\uff54\uff50\uff53://parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "parent.com",
+            "response": null,
+            "error": "file_get_contents(parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "hello://parent.com",
+            "response": null,
+            "error": "file_get_contents(hello://parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https:///parent.com",
+            "response": null,
+            "error": "file_get_contents(https:///parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https:////parent.com",
+            "response": null,
+            "error": "file_get_contents(https:////parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https:/parent.com",
+            "response": null,
+            "error": "file_get_contents(https:/parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https:////////////////parent.com",
+            "response": null,
+            "error": "file_get_contents(https:////////////////parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https:\\\\parent.com",
+            "response": null,
+            "error": "file_get_contents(https:\\\\parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http:\uff0f\uff0fparent.com",
+            "response": null,
+            "error": "file_get_contents(http:\uff0f\uff0fparent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https:%2f%2fparent.com",
+            "response": null,
+            "error": "file_get_contents(https:%2f%2fparent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https://parent.com://child.org",
+            "response": "GET //child.org HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": "file_get_contents(//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "file_get_contents(///parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "\\\\parent.com",
+            "response": null,
+            "error": "file_get_contents(\\\\parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http://user:pass@parent.com",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNz\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@@parent.com",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNzQA==\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@parent.com@child.org",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNzQHBhcmVudC5jb20=\r\nHost: child.org\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "file_get_contents(https://user:pass%40parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user:pass\\@parent.com",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNzXA==\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass%5c%40parent.com",
+            "response": null,
+            "error": "file_get_contents(https://user:pass%5c%40parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://user:pass\uff20parent.com",
+            "response": null,
+            "error": "file_get_contents(https://user:pass\uff20parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com#@child.org/",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user@parent.com:80@child.org",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlckBwYXJlbnQuY29tOjgw\r\nHost: child.org\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user@parent.com:80 @child.org",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlckBwYXJlbnQuY29tOjgwIA==\r\nHost: child.org\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user::pass@parent.com",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcjo6cGFzcw==\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user:pass@parent.com:pass2@child.org",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNzQHBhcmVudC5jb206cGFzczI=\r\nHost: child.org\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com:443:444/",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com:443:444\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user%3apass@parent.com",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcjpwYXNzAHM6\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://user\uff1apass@parent.com",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic dXNlcu+8X3Bhc3M6\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com.",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com.\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://.parent.com",
+            "response": null,
+            "error": "file_get_contents(https://.parent.com): Failed to open stream: php_network_getaddresses: getaddrinfo for .parent.com failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://parent.com://",
+            "response": "GET // HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com@",
+            "response": null,
+            "error": "file_get_contents(https://...@): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com?",
+            "response": "GET /? HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://parent.com&",
+            "response": null,
+            "error": "file_get_contents(https://parent.com&): Failed to open stream: php_network_getaddresses: getaddrinfo for parent.com& failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://parent.com#",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://fa\u00df.de",
+            "response": null,
+            "error": "file_get_contents(http://fa\u00df.de): Failed to open stream: php_network_getaddresses: getaddrinfo for fa_.de failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://parent.co\u33a7",
+            "response": null,
+            "error": "file_get_contents(https://parent.co\u33a7): Failed to open stream: php_network_getaddresses: getaddrinfo for parent.co_ failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://[::1]",
+            "response": "GET / HTTP/1.1\r\nHost: [::1]\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%lo0]",
+            "response": "GET / HTTP/1.1\r\nHost: [::1%lo0]\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%25lo0]",
+            "response": "GET / HTTP/1.1\r\nHost: [::1%25lo0]\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "file_get_contents(https://[::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23]): Failed to open stream: php_network_getaddresses: getaddrinfo for ::1%25%40%70%61%72%65%6E%74%2E%63%6F%6D%23 failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]",
+            "response": null,
+            "error": "file_get_contents(https://[::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23]): Failed to open stream: php_network_getaddresses: getaddrinfo for ::1%%40%70%61%72%65%6E%74%2E%63%6F%6D%23 failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://[::1%@parent.com#]",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic Wzo6MSU=\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]",
+            "response": null,
+            "error": "file_get_contents(https://[::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D]): Failed to open stream: php_network_getaddresses: getaddrinfo for ::1%25%28%29%3D%3B%2B%21%24%2A%2C%5B%5D failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "parent.com",
+            "response": null,
+            "error": "file_get_contents(parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http://%70%61%72%65%6E%74%2E%63%6Fm?x=y",
+            "response": null,
+            "error": "file_get_contents(http://%70%61%72%65%6E%74%2E%63%6Fm?x=y): Failed to open stream: php_network_getaddresses: getaddrinfo for %70%61%72%65%6E%74%2E%63%6Fm failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://parent.com:-1",
+            "response": null,
+            "error": "file_get_contents(https://parent.com:-1): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:65536",
+            "response": null,
+            "error": "file_get_contents(https://parent.com:65536): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:hello",
+            "response": null,
+            "error": "file_get_contents(https://parent.com:hello): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:\u2463\u2463\u2462",
+            "response": null,
+            "error": "file_get_contents(https://parent.com:\u2463\u2463\u2462): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https://parent.com:443:",
+            "response": "GET / HTTP/1.1\r\nHost: parent.com:443\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "https://:443/path",
+            "response": null,
+            "error": "file_get_contents(https://:443/path): Failed to open stream: operation failed"
+        },
+        {
+            "url": "%68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33",
+            "response": null,
+            "error": "file_get_contents(%68%74%74%70%3A%2F%2F%70%61%72%65%6E%74%2E%63%6F%6D%2F%3F%61%3D%31%2C%32%2C%33): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https://user:pass%40parent.com",
+            "response": null,
+            "error": "file_get_contents(https://user:pass%40parent.com): Failed to open stream: operation failed"
+        },
+        {
+            "url": "https:@parent.com",
+            "response": null,
+            "error": "file_get_contents(https:@parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "///parent.com",
+            "response": null,
+            "error": "file_get_contents(///parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "//parent.com",
+            "response": null,
+            "error": "file_get_contents(//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "/\\parent.com",
+            "response": null,
+            "error": "file_get_contents(/\\parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "/\n/parent.com",
+            "response": null,
+            "error": "file_get_contents(/\n/parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "/\t/parent.com",
+            "response": null,
+            "error": "file_get_contents(/\t/parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http\uff1a//parent.com",
+            "response": null,
+            "error": "file_get_contents(http\uff1a//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http\ufe55//parent.com",
+            "response": null,
+            "error": "file_get_contents(http\ufe55//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "http%ef%b9%95//parent.com",
+            "response": null,
+            "error": "file_get_contents(http%ef%b9%95//parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https://parent.com/a\uff2e\uff2e/b",
+            "response": "GET /a\uff2e\uff2e/b HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com:8888/proxy/coordinator@child.org",
+            "response": null,
+            "error": "file_get_contents(http://...@child.org): Failed to open stream: Connection refused"
+        },
+        {
+            "url": "https://parent.com[@child.org",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic cGFyZW50LmNvbVs6\r\nHost: child.org\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/redirect?uri=https://child.org?originalUrl=http://evil.com",
+            "response": "GET /redirect?uri=https://child.org?originalUrl=http://evil.com HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": " https://parent.com?x=cve-2023-24329",
+            "response": null,
+            "error": "file_get_contents( https://parent.com?x=cve-2023-24329): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": " https://parent.com:80%5c%5cchild.org//#what\\is going on",
+            "response": null,
+            "error": "file_get_contents( https://parent.com:80%5c%5cchild.org//#what\\is going on): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https:@/parent.com",
+            "response": null,
+            "error": "file_get_contents(https:@/parent.com): Failed to open stream: No such file or directory"
+        },
+        {
+            "url": "https://user@parent.com:808:/?id=xss",
+            "response": null,
+            "error": "file_get_contents(https://...@parent.com:808:/?id=xss): Failed to open stream: Connection refused"
+        },
+        {
+            "url": "https://pa[re]nt.com",
+            "response": null,
+            "error": "file_get_contents(https://pa[re]nt.com): Failed to open stream: php_network_getaddresses: getaddrinfo for pa[re]nt.com failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "https://pa[rent.com%25lo%25]:8000",
+            "response": null,
+            "error": "file_get_contents(https://pa[rent.com%25lo%25]:8000): Failed to open stream: php_network_getaddresses: getaddrinfo for pa[rent.com%25lo%25] failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "http://parent.com:\ba@child.org/",
+            "response": "GET / HTTP/1.1\r\nAuthorization: Basic cGFyZW50LmNvbTpfYQ==\r\nHost: child.org\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/../b/./c",
+            "response": "GET /a/../b/./c HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a//b///c",
+            "response": "GET /a//b///c HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;matrix=true/c",
+            "response": "GET /a/b;matrix=true/c HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/a/b;role=admin;debug=true?x=1",
+            "response": "GET /a/b;role=admin;debug=true?x=1 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn",
+            "response": "GET /path%2Fto%2Fresource?redirect=/admin%2Fpanel%3Fuser%3Djohn HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?a=1,2,3",
+            "response": "GET /?a=1,2,3 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?arr[]=1&arr[]=2",
+            "response": "GET /?arr[]=1&arr[]=2 HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello world",
+            "response": "GET /?q=hello world HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com/?q=hello+world",
+            "response": "GET /?q=hello+world HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://parent.com//a/b",
+            "response": "GET //a/b HTTP/1.1\r\nHost: parent.com\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://[::1%25tes@sadf]:80/a/b&",
+            "response": null,
+            "error": "file_get_contents(http://...@sadf]:80/a/b&): Failed to open stream: php_network_getaddresses: getaddrinfo for sadf] failed: nodename nor servname provided, or not known"
+        },
+        {
+            "url": "http://[::1%tes]:80/a/b?#",
+            "response": "GET /a/b? HTTP/1.1\r\nHost: [::1%tes]\r\nConnection: close\r\n\r\n",
+            "error": null
+        },
+        {
+            "url": "http://\u2460\u00b2\u2466.\u2460?a#",
+            "response": null,
+            "error": "file_get_contents(http://\u2460\u00b2\u2466.\u2460?a#): Failed to open stream: php_network_getaddresses: getaddrinfo for _\u00b2_._ failed: nodename nor servname provided, or not known"
+        }
+    ]
+}
